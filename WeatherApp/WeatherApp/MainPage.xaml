@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" BackgroundColor="#6126CA"
+             x:Class="WeatherApp.MainPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="6.2*"/>
+            <RowDefinition Height="3.8*"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Frame Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="0" BackgroundColor="#FFFFFF" />
+        <Frame CornerRadius="30" Padding="0" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="#FFFFFF">
+            <StackLayout Padding="15" Orientation="Horizontal">
+                <Image Source="img.png" 
+                       WidthRequest="70" HeightRequest="70"/>
+                <Label Text="Weather Forecast App" TextColor="#090909" FontSize="24" FontFamily="{StaticResource NormalFont}"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </StackLayout>
+        </Frame>
+
+        <StackLayout x:Name="weatherInfo" Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2" IsVisible="False">
+            <Label x:Name="tempLabel" Text="" FontSize="66" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}" Margin="0"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="descrLabel" Text="" FontSize="26" TextColor="#F9F1FD" FontFamily="{StaticResource NormalFont}"/>
+                <Image WidthRequest="45" HeightRequest="45" x:Name="weatherIcon"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical">
+                <Label Text="Maximum temperature in" FontSize="14" TextColor="#F9F1FD" FontFamily="{StaticResource LightFont}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="following 12 hours" FontSize="14" TextColor="#F9F1FD" FontFamily="{StaticResource LightFont}"/>
+                    <Label x:Name="tempMaxLabel" Text="" FontSize="14" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Pressure" FontSize="14" TextColor="#F9F1FD" FontFamily="{StaticResource LightFont}"/>
+                <Label x:Name="pressureLabel" Text="" FontSize="14" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Humidity" FontSize="14" TextColor="#F9F1FD" FontFamily="{StaticResource LightFont}"/>
+                <Label x:Name="humidityLabel" Text="" FontSize="14" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}"/>
+            </StackLayout>
+
+
+            <Label x:Name="cityLabel" Text="" FontSize="24" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}"/>
+        </StackLayout>
+
+        <!--Hourly Forecast-->
+        <Frame x:Name="hourlyForecast" CornerRadius="10" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Padding="10, 0, 10, 0" Margin="0, 15, 15, 5" 
+               HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False">
+            <StackLayout Orientation="Horizontal"  BackgroundColor="#FFFFFF">
+                <StackLayout Orientation="Vertical">
+                    <Image x:Name="icon1Image" HeightRequest="30" WidthRequest="0"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="temp1Label" Text="20C" FontSize="24" TextColor="#090909" FontFamily="{StaticResource BoldFont}" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="hr1Label" Text="18:00" FontSize="14" TextColor="#666666" FontFamily="{StaticResource LightFont}" HorizontalTextAlignment="Center"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="descr1Label" FontSize="18" TextColor="#666666" FontFamily="{StaticResource NormalFont}" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                    <Image x:Name="icon2Image" HeightRequest="30" WidthRequest="0"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="temp2Label" Text="20C" FontSize="24" TextColor="#090909" FontFamily="{StaticResource BoldFont}" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="hr2Label" Text="18:00" FontSize="14" TextColor="#666666" FontFamily="{StaticResource LightFont}" HorizontalTextAlignment="Center"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="descr2Label" FontSize="18" TextColor="#666666" FontFamily="{StaticResource NormalFont}" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                    <Image x:Name="icon3Image" HeightRequest="30" WidthRequest="0"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="temp3Label" Text="20C" FontSize="24" TextColor="#090909" FontFamily="{StaticResource BoldFont}" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="hr3Label" Text="18:00" FontSize="14" TextColor="#666666" FontFamily="{StaticResource LightFont}" HorizontalTextAlignment="Center"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="descr3Label" FontSize="18" TextColor="#666666" FontFamily="{StaticResource NormalFont}" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                    <Image x:Name="icon4Image" HeightRequest="30" WidthRequest="0"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="temp4Label" Text="20C" FontSize="24" TextColor="#090909" FontFamily="{StaticResource BoldFont}" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="hr4Label" Text="18:00" FontSize="14" TextColor="#666666" FontFamily="{StaticResource LightFont}" HorizontalTextAlignment="Center"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="descr4Label" FontSize="18" TextColor="#666666" FontFamily="{StaticResource NormalFont}" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                    <Image x:Name="icon5Image" HeightRequest="30" WidthRequest="0"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="temp5Label" Text="20C" FontSize="24" TextColor="#090909" FontFamily="{StaticResource BoldFont}" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="hr5Label" Text="18:00" FontSize="14" TextColor="#666666" FontFamily="{StaticResource LightFont}" HorizontalTextAlignment="Center"/>
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#6126CA"></BoxView>
+                    <Label x:Name="descr5Label" FontSize="18" TextColor="#666666" FontFamily="{StaticResource NormalFont}" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+        
+        
+        <Frame Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="5" BackgroundColor="#FFFFFF" />
+        <Frame CornerRadius="30" Padding="0" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="4" Grid.RowSpan="2" BackgroundColor="#FFFFFF">
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <!-- Entry field -->
+                <SearchBar x:Name="cityEntry" PlaceholderColor="#F9F1FD" TextColor="#666666" TextChanged="CityEntry_TextChanged"
+                           FontFamily="{StaticResource NormalFont}" Placeholder="Enter City" WidthRequest="250"/>
+
+                <!-- Get data button -->
+                <Button x:Name="getDataBtn" BackgroundColor="#F5315F" TextColor="#F9F1FD" Text="search" FontFamily="{StaticResource NormalFont}"
+                        Clicked="GetDataBtn_Clicked" CornerRadius="100" WidthRequest="90" HeightRequest="50"/>
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
