@@ -6,6 +6,89 @@
              mc:Ignorable="d" BackgroundColor="#6126CA"
              x:Class="WeatherApp.MainPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- 
+                TODO:Add Colors and their names
+            -->
+            
+            <!-- Styles -->
+
+            <!-- Search Bar Styles -->
+            <!-- Search Btn Style -->
+            <Style TargetType="Button" x:Key="searchBtnStyle">
+                <Setter Property="BackgroundColor" Value="#F5315F"/>
+                <Setter Property="TextColor" Value="#F9F1FD"/>
+                <Setter Property="Text" Value="SEARCH"/>
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
+                <Setter Property="CornerRadius" Value="100"/>
+                <Setter Property="WidthRequest" Value="90"/>
+                <Setter Property="HeightRequest" Value="50"/>
+            </Style>
+            <!-- Search Input Style-->
+            <Style TargetType="SearchBar" x:Key="searchBarStyle">
+                <Setter Property="Placeholder" Value="Enter City"/>
+                <Setter Property="PlaceholderColor" Value="#F9F1FD"/>
+                <Setter Property="TextColor" Value="#666666"/>
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
+                <Setter Property="WidthRequest" Value="250"/>
+            </Style>
+
+            <!-- Houryl Forecast Styles-->
+            <!-- Weather Icon Style-->
+            <Style TargetType="Image" x:Key="weatherIconStyle">
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="0"/>
+            </Style>
+            <!-- Horizontal Line -->
+            <Style TargetType="BoxView" x:Key="horizontalLine">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="HeightRequest" Value="1"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="Color" Value="#6126CA"/>
+            </Style>
+            <!-- Temperature Label Style -->
+            <Style TargetType="Label" x:Key="tempLabelStyle">
+                <Setter Property="Text" Value="null"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="TextColor" Value="#090909"/>
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <!-- Hour Label Style -->
+            <Style TargetType="Label" x:Key="hourLabelStyle">
+                <Setter Property="Text" Value="null"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#666666"/>
+                <Setter Property="FontFamily" Value="{StaticResource LightFont}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <!-- Description Label Style -->
+            <Style TargetType="Label" x:Key="descrLabelStyle">
+                <Setter Property="Text" Value="null"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextColor" Value="#666666"/>
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+
+            <!-- Weather Details Styles-->
+            <!-- Max Temp, Pressure, Humidity STATIC -->
+            <Style TargetType="Label" x:Key="staticWeatherDetailStyle">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#F9F1FD"/>
+                <Setter Property="FontFamily" Value="{StaticResource LightFont}"/>
+            </Style>
+            <!-- Max Temp, Pressure, Humidity DATA -->
+            <Style TargetType="Label" x:Key="dataWeatherDetailStyle">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#F9F1FD"/>
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
