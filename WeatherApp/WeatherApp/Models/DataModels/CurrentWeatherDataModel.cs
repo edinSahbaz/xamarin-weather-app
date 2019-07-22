@@ -24,13 +24,13 @@ namespace WeatherApp.Models.DataModels
             public int pressure { get; set; }
             public int humidity { get; set; }
             public double temp_min { get; set; }
-            public int temp_max { get; set; }
+            public double temp_max { get; set; }
         }
 
         public class Wind
         {
             public double speed { get; set; }
-            public int deg { get; set; }
+            public double deg { get; set; }
         }
 
         public class Clouds

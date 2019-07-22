@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using WeatherApp.Api;
@@ -41,14 +42,28 @@ namespace WeatherApp
             getUserInput();
 
             OpenWeatherApi api = new OpenWeatherApi(_city);
-            _currentData = await api.GetCurrentWeather();
-            _dailyData = await api.GetDailyWeather();
+            try
+            {
+                _currentData = await api.GetCurrentWeather();
+                _dailyData = await api.GetDailyWeather();
 
-            fillInLabels();
-            fillHourlyForecast();
+                fillInLabels();
+                fillHourlyForecast();
 
-            weatherInfo.IsVisible = true;
-            hourlyForecast.IsVisible = true;
+                weatherInfo.IsVisible = true;
+                hourlyForecast.IsVisible = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.HResult == -2146233088)
+                {
+                    await DisplayAlert("Alert", "Incorrect input!\nPlease try again.", "Close");
+                }
+                else
+                {
+                    await DisplayAlert("Alert", "You have encountered an error!\n" + ex.Message, "Close");
+                }
+            }
         }
 
         void getUserInput()

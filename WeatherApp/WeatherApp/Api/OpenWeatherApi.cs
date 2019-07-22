@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using WeatherApp.Models.DataModels;
@@ -12,25 +13,41 @@ namespace WeatherApp.Api
         private string _units = "metric";
         private string _city;
 
+        HttpClient _httpClient = new HttpClient();
+
         public OpenWeatherApi(string city)
         {
             _city = city;
         }
 
-        HttpClient _httpClient = new HttpClient();
-        
         public async Task<CurrentWeatherDataModel.RootObject> GetCurrentWeather()
         {
             var response = await _httpClient.GetAsync($"{_apiHost}weather?q={_city}&appid={_apiKey}&units={_units}");
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<CurrentWeatherDataModel.RootObject>(content);
+            
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<CurrentWeatherDataModel.RootObject>(content);
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         public async Task<DailyWeatherDataModel.RootObject> GetDailyWeather()
         {
             var response = await _httpClient.GetAsync($"{_apiHost}forecast?q={_city}&appid={_apiKey}&units={_units}");
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<DailyWeatherDataModel.RootObject>(content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<DailyWeatherDataModel.RootObject>(content);
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
     }
 }
