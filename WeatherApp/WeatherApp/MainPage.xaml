@@ -118,7 +118,7 @@
             </StackLayout>
         </Frame>
 
-        <StackLayout x:Name="weatherInfo" Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2" IsVisible="False">
+        <StackLayout x:Name="currentForcast" Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2">
             <Label x:Name="tempLabel" Text="" FontSize="66" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}" Margin="0"/>
 
             <StackLayout Orientation="Horizontal">
@@ -143,14 +143,13 @@
                 <Label Text="Humidity" Style="{StaticResource staticWeatherDetailStyle}"/>
                 <Label x:Name="humidityLabel" Style="{StaticResource dataWeatherDetailStyle}"/>
             </StackLayout>
-
-
+            
             <Label x:Name="cityLabel" Text="" FontSize="24" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}"/>
         </StackLayout>
 
         <!--Hourly Forecast-->
         <Frame x:Name="hourlyForecast" CornerRadius="10" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Padding="10, 0, 10, 0" Margin="0, 15, 15, 5" 
-               HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False">
+               HorizontalOptions="Center" VerticalOptions="Center">
             <StackLayout Orientation="Horizontal"  BackgroundColor="#FFFFFF">
                 <StackLayout Orientation="Vertical">
                     <Image x:Name="icon1Image" Style="{StaticResource weatherIconStyle}"/>

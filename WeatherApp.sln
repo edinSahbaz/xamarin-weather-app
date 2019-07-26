@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Android", "WeatherApp\WeatherApp.Android\WeatherApp.Android.csproj", "{547A1D6C-3B02-48FD-AE9F-2E95A62E7382}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp", "WeatherApp\WeatherApp\WeatherApp.csproj", "{830BF903-AEAE-4297-8651-8CABE7F0F206}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApp", "WeatherApp\WeatherApp\WeatherApp.csproj", "{830BF903-AEAE-4297-8651-8CABE7F0F206}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

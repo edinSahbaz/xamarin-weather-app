@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using WeatherApp.Api;
 using WeatherApp.Models.DataModels;
 using WeatherApp.Models.DisplayModels;
@@ -20,7 +21,10 @@ namespace WeatherApp
         public MainPage()
         {
             InitializeComponent();
+
             getDataBtn.IsEnabled = false;
+            currentForcast.Opacity = 0;
+            hourlyForecast.Opacity = 0;
         }
 
         private void CityEntry_TextChanged(object sender, TextChangedEventArgs e)
@@ -47,11 +51,20 @@ namespace WeatherApp
                 _currentData = await api.GetCurrentWeather();
                 _dailyData = await api.GetDailyWeather();
 
-                fillInLabels();
+                fillInCurrentForecast();
                 fillHourlyForecast();
 
-                weatherInfo.IsVisible = true;
-                hourlyForecast.IsVisible = true;
+                currentForcast.Opacity = 0;
+                currentForcast.Scale = 0;
+
+                hourlyForecast.Opacity = 0;
+                hourlyForecast.Scale = 0;
+
+                await currentForcast.FadeTo(1, 250);
+                await currentForcast.ScaleTo(1, 250);
+
+                await hourlyForecast.FadeTo(1, 250);
+                await hourlyForecast.ScaleTo(1, 250);
             }
             catch (Exception ex)
             {
@@ -71,7 +84,7 @@ namespace WeatherApp
             _city = cityEntry.Text.ToString();
         }
 
-        void fillInLabels()
+        void fillInCurrentForecast()
         {
             new CurrentForecastDataDisplayModel(_city, cityLabel, tempLabel, pressureLabel, humidityLabel, descrLabel, tempMaxLabel, weatherIcon, _currentData, _dailyData);
         }
