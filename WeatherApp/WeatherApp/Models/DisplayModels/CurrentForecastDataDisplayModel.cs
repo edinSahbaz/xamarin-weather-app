@@ -18,7 +18,7 @@ namespace WeatherApp.Models.DisplayModels
 
             tempLabel.Text = Math.Round(Convert.ToDecimal(currentData.main.temp)).ToString() + "°C";
 
-            tempMaxLabel.Text = getMaxTemp().ToString() + "°C";
+            tempMaxLabel.Text = GetMaxTemp().ToString() + "°C";
 
             pressureLabel.Text = currentData.main.pressure / 1000 + "Bar";
 
@@ -29,7 +29,7 @@ namespace WeatherApp.Models.DisplayModels
             weatherIcon.Source = "http://openweathermap.org/img/w/" + currentData.weather.First().icon + ".png";
         }
 
-        int getMaxTemp()
+        int GetMaxTemp()
         {
             var data = _dailyData.list.ToArray();
 

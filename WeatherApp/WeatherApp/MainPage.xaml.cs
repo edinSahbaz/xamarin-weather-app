@@ -23,13 +23,14 @@ namespace WeatherApp
             InitializeComponent();
 
             getDataBtn.IsEnabled = false;
-            currentForcast.Opacity = 0;
-            hourlyForecast.Opacity = 0;
+
+            currentForcast.Scale = 0;
+            hourlyForecast.Scale = 0;
         }
 
         private void CityEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            getUserInput();
+            GetUserInput();
 
             if (_city != string.Empty)
             {
@@ -43,7 +44,7 @@ namespace WeatherApp
 
         async void GetDataBtn_Clicked(object sender, System.EventArgs e)
         {
-            getUserInput();
+            GetUserInput();
 
             OpenWeatherApi api = new OpenWeatherApi(_city);
             try
@@ -51,20 +52,10 @@ namespace WeatherApp
                 _currentData = await api.GetCurrentWeather();
                 _dailyData = await api.GetDailyWeather();
 
-                fillInCurrentForecast();
-                fillHourlyForecast();
+                FillInCurrentForecast();
+                FillHourlyForecast();
 
-                currentForcast.Opacity = 0;
-                currentForcast.Scale = 0;
-
-                hourlyForecast.Opacity = 0;
-                hourlyForecast.Scale = 0;
-
-                await currentForcast.FadeTo(1, 250);
-                await currentForcast.ScaleTo(1, 250);
-
-                await hourlyForecast.FadeTo(1, 250);
-                await hourlyForecast.ScaleTo(1, 250);
+                await LoadAnimations();
             }
             catch (Exception ex)
             {
@@ -79,17 +70,28 @@ namespace WeatherApp
             }
         }
 
-        void getUserInput()
+        async Task LoadAnimations()
+        {
+            currentForcast.Scale = 0;
+
+            hourlyForecast.Scale = 0;
+
+            await currentForcast.ScaleTo(1, 250);
+
+            await hourlyForecast.ScaleTo(1, 250);
+        }
+
+        void GetUserInput()
         {
             _city = cityEntry.Text.ToString();
         }
 
-        void fillInCurrentForecast()
+        void FillInCurrentForecast()
         {
             new CurrentForecastDataDisplayModel(_city, cityLabel, tempLabel, pressureLabel, humidityLabel, descrLabel, tempMaxLabel, weatherIcon, _currentData, _dailyData);
         }
 
-        void fillHourlyForecast()
+        void FillHourlyForecast()
         {
             List<DailyWeatherDataModel.List> dailyWeatherData = _dailyData.list;
 

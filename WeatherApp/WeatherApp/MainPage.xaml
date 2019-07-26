@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" BackgroundColor="#6126CA"
+             mc:Ignorable="d" BackgroundImageSource = "drawable/background.jpg"
              x:Class="WeatherApp.MainPage">
 
     <ContentPage.Resources>
@@ -17,7 +17,7 @@
             <!-- Search Bar Styles -->
             <!-- Search Btn Style -->
             <Style TargetType="Button" x:Key="searchBtnStyle">
-                <Setter Property="BackgroundColor" Value="#F5315F"/>
+                <Setter Property="BackgroundColor" Value="#4D92D9"/>
                 <Setter Property="TextColor" Value="#F9F1FD"/>
                 <Setter Property="Text" Value="SEARCH"/>
                 <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
@@ -46,7 +46,7 @@
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="HeightRequest" Value="1"/>
                 <Setter Property="WidthRequest" Value="50"/>
-                <Setter Property="Color" Value="#6126CA"/>
+                <Setter Property="Color" Value="#4D92D9"/>
             </Style>
             <!-- Temperature Label Style -->
             <Style TargetType="Label" x:Key="tempLabelStyle">

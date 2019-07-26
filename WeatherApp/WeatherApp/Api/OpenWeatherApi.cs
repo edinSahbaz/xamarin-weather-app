@@ -49,5 +49,10 @@ namespace WeatherApp.Api
                 throw new Exception();
             }
         }
+
+        ~OpenWeatherApi()
+        {
+            GC.Collect();
+        }
     }
 }
