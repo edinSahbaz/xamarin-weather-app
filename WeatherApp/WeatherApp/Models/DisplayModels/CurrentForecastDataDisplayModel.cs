@@ -8,17 +8,26 @@ namespace WeatherApp.Models.DisplayModels
     public class CurrentForecastDataDisplayModel
     {
         private DailyWeatherDataModel.RootObject _dailyData { get; set; }
-        public CurrentForecastDataDisplayModel(string city, Label cityLabel, Label tempLabel, 
+        public CurrentForecastDataDisplayModel(string userInput, string choosenUnits, Label cityLabel, Label tempLabel, 
             Label pressureLabel, Label humidityLabel, Label descrLabel, Label tempMaxLabel, Image weatherIcon, 
             CurrentWeatherDataModel.RootObject currentData, DailyWeatherDataModel.RootObject dailyData)
         {
             _dailyData = dailyData;
 
-            cityLabel.Text = city + "," + currentData.sys.country;
+            if (choosenUnits == "metric")
+            {
+                tempLabel.Text = Math.Round(Convert.ToDecimal(currentData.main.temp)).ToString() + "°C";
 
-            tempLabel.Text = Math.Round(Convert.ToDecimal(currentData.main.temp)).ToString() + "°C";
+                tempMaxLabel.Text = GetMaxTemp().ToString() + "°C";
+            }
+            else
+            {
+                tempLabel.Text = Math.Round(Convert.ToDecimal(currentData.main.temp)).ToString() + "°F";
 
-            tempMaxLabel.Text = GetMaxTemp().ToString() + "°C";
+                tempMaxLabel.Text = GetMaxTemp().ToString() + "°F";
+            }
+            
+            cityLabel.Text = userInput + "," + currentData.sys.country;
 
             pressureLabel.Text = currentData.main.pressure / 1000 + "Bar";
 

@@ -10,14 +10,15 @@ namespace WeatherApp.Api
     {
         private string _apiHost = "http://api.openweathermap.org/data/2.5/";
         private string _apiKey = "3f6a689c2ab05208a789a8858d595c07";
-        private string _units = "metric";
+        private string _units;
         private string _city;
 
         HttpClient _httpClient = new HttpClient();
 
-        public OpenWeatherApi(string city)
+        public OpenWeatherApi(string userInput , string units)
         {
-            _city = city;
+            _city = userInput;
+            _units = units;
         }
 
         public async Task<CurrentWeatherDataModel.RootObject> GetCurrentWeather()

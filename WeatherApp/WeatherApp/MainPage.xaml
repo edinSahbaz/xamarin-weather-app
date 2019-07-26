@@ -120,6 +120,13 @@
             </StackLayout>
         </Frame>
 
+        <Frame Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="20, 40, -30, 0" CornerRadius="30">
+            <StackLayout Orientation="Vertical">
+                <Switch x:Name="unitsSwitch" Toggled="UnitsSwitch_Toggled" Scale="1.4" HorizontalOptions="Center" OnColor="#4BB8D5"/>
+                <Label x:Name="unitsLabel" Text="Metric" FontFamily="{StaticResource NormalFont}" TextColor="#090909" HorizontalOptions="Center"/>
+            </StackLayout>
+        </Frame>
+
         <StackLayout x:Name="currentForecast" Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2">
             <Label x:Name="tempLabel" Text="" FontSize="66" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}" Margin="0"/>
 
