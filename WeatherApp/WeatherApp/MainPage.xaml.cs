@@ -24,7 +24,7 @@ namespace WeatherApp
 
             getDataBtn.IsEnabled = false;
 
-            currentForcast.Scale = 0;
+            currentForecast.Opacity = 0;
             hourlyForecast.Scale = 0;
         }
 
@@ -59,26 +59,31 @@ namespace WeatherApp
             }
             catch (Exception ex)
             {
-                if (ex.HResult == -2146233088)
-                {
-                    await DisplayAlert("Alert", "Incorrect input!\nPlease try again.", "Close");
-                }
-                else
-                {
-                    await DisplayAlert("Alert", "You have encountered an error!\n" + ex.Message, "Close");
-                }
+                ExceptionHandling(ex);
+            }
+        }
+
+        void ExceptionHandling(Exception ex)
+        {
+            if (ex.HResult == -2146233088)
+            {
+                DisplayAlert("Alert", "Incorrect input!\nPlease try again.", "Close");
+            }
+            else
+            {
+                DisplayAlert("Alert", "You have encountered an error!\n" + ex.Message, "Close");
             }
         }
 
         async Task LoadAnimations()
         {
-            currentForcast.Scale = 0;
-
+            currentForecast.Opacity = 0;
             hourlyForecast.Scale = 0;
 
-            await currentForcast.ScaleTo(1, 250);
-
-            await hourlyForecast.ScaleTo(1, 250);
+            await Task.WhenAll(
+                currentForecast.FadeTo(1, 300),
+                hourlyForecast.ScaleTo(1, 300)
+                );
         }
 
         void GetUserInput()

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" BackgroundImageSource = "drawable/background.jpg"
+             mc:Ignorable="d" BackgroundColor = "#4D92D9"
              x:Class="WeatherApp.MainPage">
 
     <ContentPage.Resources>
@@ -11,7 +11,7 @@
             <!-- 
                 TODO:Add Colors and their names
             -->
-            
+
             <!-- Styles -->
 
             <!-- Search Bar Styles -->
@@ -88,7 +88,7 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -100,12 +100,14 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="6.2*"/>
-            <RowDefinition Height="3.8*"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="28"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="6.42*"/>
+            <RowDefinition Height="3.58*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
+
+
 
         <!-- Header -->
         <Frame Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="0" BackgroundColor="#FFFFFF" />
@@ -118,7 +120,7 @@
             </StackLayout>
         </Frame>
 
-        <StackLayout x:Name="currentForcast" Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2">
+        <StackLayout x:Name="currentForecast" Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2">
             <Label x:Name="tempLabel" Text="" FontSize="66" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}" Margin="0"/>
 
             <StackLayout Orientation="Horizontal">
@@ -133,7 +135,7 @@
                     <Label x:Name="tempMaxLabel" Style="{StaticResource dataWeatherDetailStyle}"/>
                 </StackLayout>
             </StackLayout>
-            
+
             <StackLayout Orientation="Horizontal">
                 <Label Text="Pressure" Style="{StaticResource staticWeatherDetailStyle}"/>
                 <Label x:Name="pressureLabel" Style="{StaticResource dataWeatherDetailStyle}"/>
@@ -143,7 +145,7 @@
                 <Label Text="Humidity" Style="{StaticResource staticWeatherDetailStyle}"/>
                 <Label x:Name="humidityLabel" Style="{StaticResource dataWeatherDetailStyle}"/>
             </StackLayout>
-            
+
             <Label x:Name="cityLabel" Text="" FontSize="24" TextColor="#F9F1FD" FontFamily="{StaticResource BoldFont}"/>
         </StackLayout>
 
@@ -197,8 +199,8 @@
                 </StackLayout>
             </StackLayout>
         </Frame>
-        
-        
+
+
         <Frame Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="5" BackgroundColor="#FFFFFF" />
         <Frame CornerRadius="30" Padding="0" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="4" Grid.RowSpan="2" BackgroundColor="#FFFFFF">
             <StackLayout Orientation="Horizontal" Padding="10">
