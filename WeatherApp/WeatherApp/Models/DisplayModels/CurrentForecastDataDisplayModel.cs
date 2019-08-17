@@ -35,7 +35,7 @@ namespace WeatherApp.Models.DisplayModels
 
             descrLabel.Text = currentData.weather.First().main;
 
-            weatherIcon.Source = "http://openweathermap.org/img/w/" + currentData.weather.First().icon + ".png";
+            weatherIcon.Source = "http://openweathermap.org/img/wn/" + currentData.weather.First().icon + ".png";
         }
 
         int GetMaxTemp()

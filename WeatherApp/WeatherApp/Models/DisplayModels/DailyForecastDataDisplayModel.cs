@@ -18,7 +18,7 @@ namespace WeatherApp.Models.DisplayModels
             {
                 tempLabel.Text = Math.Ceiling(Convert.ToDecimal(hourData.main.temp)).ToString() + "°F";
             }
-            weatherIcon.Source = "http://openweathermap.org/img/w/" + hourData.weather.First().icon + ".png";
+            weatherIcon.Source = "http://openweathermap.org/img/wn/" + hourData.weather.First().icon + ".png";
 
             hrLabel.Text = hourData.dt_txt.Substring(10, 6) + " h";
 
