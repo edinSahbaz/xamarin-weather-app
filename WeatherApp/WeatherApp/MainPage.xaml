@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" BackgroundColor = "#4D92D9"
+             mc:Ignorable="d" BackgroundColor = "#495ABF"
              x:Class="WeatherApp.MainPage">
 
     <ContentPage.Resources>
@@ -17,8 +17,8 @@
             <!-- Search Bar Styles -->
             <!-- Search Btn Style -->
             <Style TargetType="Button" x:Key="searchBtnStyle">
-                <Setter Property="BackgroundColor" Value="#4D92D9"/>
-                <Setter Property="TextColor" Value="#F9F1FD"/>
+                <Setter Property="BackgroundColor" Value="#3949C5"/>
+                <Setter Property="TextColor" Value="#FFFFFF"/>
                 <Setter Property="Text" Value="SEARCH"/>
                 <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
                 <Setter Property="CornerRadius" Value="100"/>
@@ -29,7 +29,7 @@
             <Style TargetType="SearchBar" x:Key="searchBarStyle">
                 <Setter Property="Placeholder" Value="Enter City"/>
                 <Setter Property="PlaceholderColor" Value="#F9F1FD"/>
-                <Setter Property="TextColor" Value="#666666"/>
+                <Setter Property="TextColor" Value="#FFFFFF"/>
                 <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
                 <Setter Property="WidthRequest" Value="250"/>
             </Style>
@@ -52,7 +52,7 @@
             <Style TargetType="Label" x:Key="tempLabelStyle">
                 <Setter Property="Text" Value="null"/>
                 <Setter Property="FontSize" Value="24"/>
-                <Setter Property="TextColor" Value="#090909"/>
+                <Setter Property="TextColor" Value="#FFFFFF"/>
                 <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
@@ -60,7 +60,7 @@
             <Style TargetType="Label" x:Key="hourLabelStyle">
                 <Setter Property="Text" Value="null"/>
                 <Setter Property="FontSize" Value="14"/>
-                <Setter Property="TextColor" Value="#666666"/>
+                <Setter Property="TextColor" Value="#FFFFFF"/>
                 <Setter Property="FontFamily" Value="{StaticResource LightFont}"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
@@ -68,7 +68,7 @@
             <Style TargetType="Label" x:Key="descrLabelStyle">
                 <Setter Property="Text" Value="null"/>
                 <Setter Property="FontSize" Value="18"/>
-                <Setter Property="TextColor" Value="#666666"/>
+                <Setter Property="TextColor" Value="#FFFFFF"/>
                 <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
@@ -110,20 +110,20 @@
 
 
         <!-- Header -->
-        <Frame Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="0" BackgroundColor="#FFFFFF" />
-        <Frame CornerRadius="30" Padding="0" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="#FFFFFF">
+        <Frame Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="0" BackgroundColor="#3949A1" />
+        <Frame CornerRadius="30" Padding="0" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="#3949A1">
             <StackLayout Padding="15" Orientation="Horizontal">
                 <Image Source="img.png" 
                        WidthRequest="70" HeightRequest="70"/>
-                <Label Text="Weather Forecast App" TextColor="#090909" FontSize="24" FontFamily="{StaticResource NormalFont}"
+                <Label Text="Weather Forecast App" TextColor="#FFFFFF" FontSize="24" FontFamily="{StaticResource NormalFont}"
                        HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             </StackLayout>
         </Frame>
 
-        <Frame Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="20, 40, -30, 0" CornerRadius="30">
+        <Frame BackgroundColor="#3949A1" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="20, 40, -30, 0" CornerRadius="30">
             <StackLayout Orientation="Vertical">
-                <Switch x:Name="unitsSwitch" Toggled="UnitsSwitch_Toggled" Scale="1.4" HorizontalOptions="Center" OnColor="#4BB8D5"/>
-                <Label x:Name="unitsLabel" Text="Metric" FontFamily="{StaticResource NormalFont}" TextColor="#090909" HorizontalOptions="Center"/>
+                <Switch x:Name="unitsSwitch" Toggled="UnitsSwitch_Toggled" Scale="1.4" HorizontalOptions="Center" OnColor="#3949C5"/>
+                <Label x:Name="unitsLabel" Text="Metric" FontFamily="{StaticResource NormalFont}" TextColor="#FFFFFF" HorizontalOptions="Center"/>
             </StackLayout>
         </Frame>
 
@@ -158,8 +158,8 @@
 
         <!--Hourly Forecast-->
         <Frame x:Name="hourlyForecast" CornerRadius="10" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Padding="10, 0, 10, 0" Margin="0, 15, 15, 5" 
-               HorizontalOptions="Center" VerticalOptions="Center">
-            <StackLayout Orientation="Horizontal"  BackgroundColor="#FFFFFF">
+               HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#3949A1">
+            <StackLayout Orientation="Horizontal"  BackgroundColor="#3949A1">
                 <StackLayout Orientation="Vertical">
                     <Image x:Name="icon1Image" Style="{StaticResource weatherIconStyle}"/>
                     <BoxView Style="{StaticResource horizontalLine}"></BoxView>
@@ -208,8 +208,8 @@
         </Frame>
 
 
-        <Frame Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="5" BackgroundColor="#FFFFFF" />
-        <Frame CornerRadius="30" Padding="0" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="4" Grid.RowSpan="2" BackgroundColor="#FFFFFF">
+        <Frame Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="5" BackgroundColor="#3949A1" />
+        <Frame CornerRadius="30" Padding="0" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="4" Grid.RowSpan="2" BackgroundColor="#3949A1">
             <StackLayout Orientation="Horizontal" Padding="10">
                 <!-- Entry field -->
                 <SearchBar x:Name="cityEntry" TextChanged="CityEntry_TextChanged" Style="{StaticResource searchBarStyle}"/>
